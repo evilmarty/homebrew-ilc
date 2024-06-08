@@ -5,21 +5,21 @@
 class Ilc < Formula
   desc "A simple way to create a command-line utility."
   homepage "https://github.com/evilmarty/ilc"
-  version "0.9.0"
+  version "0.10.0"
   license "GPL-3.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/evilmarty/ilc/releases/download/v0.9.0/ilc-0.9.0-darwin_amd64"
-      sha256 "f7422b9db0ae4cb2b30f760a2f5f9a75af5ecf8115a05b096ca3f64c983b85a5"
+      url "https://github.com/evilmarty/ilc/releases/download/v0.10.0/ilc-0.10.0-darwin_amd64"
+      sha256 "858bf184236954058c2da5add9e394ca38ef2c9618d53cab93e97698cbd6aea4"
 
       def install
         bin.install Dir["*"].first => "ilc"
       end
     end
     on_arm do
-      url "https://github.com/evilmarty/ilc/releases/download/v0.9.0/ilc-0.9.0-darwin_arm64"
-      sha256 "9d1dc605f28a28ba201871bfc4e32dcef0cc1571f5b2023b165fb9e8cfde001c"
+      url "https://github.com/evilmarty/ilc/releases/download/v0.10.0/ilc-0.10.0-darwin_arm64"
+      sha256 "ceca668e2d19edfb66e909c69cca948252e3c7944e2a97f9aa962c23aed81ca0"
 
       def install
         bin.install Dir["*"].first => "ilc"
@@ -30,8 +30,8 @@ class Ilc < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.9.0/ilc-0.9.0-linux_amd64"
-        sha256 "e66dbc353814081808b6fc1b28fa72155607c1016dee0f829837955c0ac395f1"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.10.0/ilc-0.10.0-linux_amd64"
+        sha256 "2c03e5ad892b9c98f601bfa1c639e95e5f6efc0956ebf126378bb7f45b5359c6"
 
         def install
           bin.install Dir["*"].first => "ilc"
@@ -40,8 +40,8 @@ class Ilc < Formula
     end
     on_arm do
       if !Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.9.0/ilc-0.9.0-linux_armv6"
-        sha256 "75041facde99135ab5190f0cbe764092043bdc11dcf6b14b69b2d949629ea449"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.10.0/ilc-0.10.0-linux_armv6"
+        sha256 "4864651693b9f8164ac9fa0d1f9deb6036c45f381fe88e67930f8d94be741f95"
 
         def install
           bin.install Dir["*"].first => "ilc"
@@ -50,8 +50,8 @@ class Ilc < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.9.0/ilc-0.9.0-linux_arm64"
-        sha256 "d52b2069778452757db1986ee0ac80bef8724fdbf9ce46ec76efd06cf08b40fc"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.10.0/ilc-0.10.0-linux_arm64"
+        sha256 "1ee41cbfc63a05b71f57def0e9c4e2fca96f4934a67bede96d2f5e573bfe5c3b"
 
         def install
           bin.install Dir["*"].first => "ilc"
