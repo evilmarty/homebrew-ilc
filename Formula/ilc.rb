@@ -14,7 +14,17 @@ class Ilc < Formula
       sha256 "ddb1af954024ae9c4540f327544f804d96b6a3254ce3aa142f7c7c5c6bae231f"
 
       def install
-        bin.install Dir["*"].first => "ilc"
+        if head?
+          ldflags = %W[
+            -s -w
+            -X main.BuildDate=#{time.iso8601}
+            -X main.Version=#{version}
+            -X main.Commit=#{Utils.git_head}
+          ]
+          system "go", "build", *std_go_args(ldflags:)
+        else
+          bin.install Dir["#{name}-*"].first => name
+        end
       end
     end
     if Hardware::CPU.arm?
@@ -22,7 +32,17 @@ class Ilc < Formula
       sha256 "b9c746ea34634b898a469a310c0cb873e775d2bbd5028ce7f9771f19de4f877a"
 
       def install
-        bin.install Dir["*"].first => "ilc"
+        if head?
+          ldflags = %W[
+            -s -w
+            -X main.BuildDate=#{time.iso8601}
+            -X main.Version=#{version}
+            -X main.Commit=#{Utils.git_head}
+          ]
+          system "go", "build", *std_go_args(ldflags:)
+        else
+          bin.install Dir["#{name}-*"].first => name
+        end
       end
     end
   end
@@ -34,7 +54,17 @@ class Ilc < Formula
         sha256 "af629677a7387bfa3f3888bb02bf0dcf9c5b22921cd184cb2d5e2e82ec8d6451"
 
         def install
-          bin.install Dir["*"].first => "ilc"
+          if head?
+            ldflags = %W[
+              -s -w
+              -X main.BuildDate=#{time.iso8601}
+              -X main.Version=#{version}
+              -X main.Commit=#{Utils.git_head}
+            ]
+            system "go", "build", *std_go_args(ldflags:)
+          else
+            bin.install Dir["#{name}-*"].first => name
+          end
         end
       end
     end
@@ -44,7 +74,17 @@ class Ilc < Formula
         sha256 "5789ad0f5244fabf46d02114732abd2df3e6c55a1e1b276ddc27822c34a59ed6"
 
         def install
-          bin.install Dir["*"].first => "ilc"
+          if head?
+            ldflags = %W[
+              -s -w
+              -X main.BuildDate=#{time.iso8601}
+              -X main.Version=#{version}
+              -X main.Commit=#{Utils.git_head}
+            ]
+            system "go", "build", *std_go_args(ldflags:)
+          else
+            bin.install Dir["#{name}-*"].first => name
+          end
         end
       end
     end
@@ -54,15 +94,29 @@ class Ilc < Formula
         sha256 "ec65301ec773a11364313a7644553a84d516158b7d1ec3b20e642c187aef2abe"
 
         def install
-          bin.install Dir["*"].first => "ilc"
+          if head?
+            ldflags = %W[
+              -s -w
+              -X main.BuildDate=#{time.iso8601}
+              -X main.Version=#{version}
+              -X main.Commit=#{Utils.git_head}
+            ]
+            system "go", "build", *std_go_args(ldflags:)
+          else
+            bin.install Dir["#{name}-*"].first => name
+          end
         end
       end
     end
   end
 
-  head "https://github.com/evilmarty/ilc.git", branch: "main"
+  head do
+    url "https://github.com/evilmarty/ilc.git", branch: "main"
+    depends_on "go" => :build
+  end
 
   test do
-    system "#{bin}/ilc", "--version"
+    version_output = shell_output(bin/"ilc -version")
+    assert_match "Version: #{version}", version_output
   end
 end
