@@ -5,21 +5,18 @@
 class Ilc < Formula
   desc "Simplify creating command-line utilities"
   homepage "https://github.com/evilmarty/ilc"
-  version "0.18.2"
+  version "0.19.0"
   license "GPL"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/evilmarty/ilc/releases/download/v0.18.2/ilc-0.18.2-darwin_amd64"
-      sha256 "ddb1af954024ae9c4540f327544f804d96b6a3254ce3aa142f7c7c5c6bae231f"
+      url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-darwin_amd64"
+      sha256 "c1965da99cf96430141ac7945fbd185c6b6d58f39b4190be4d6da5c729088bd4"
 
       def install
         if head?
           ldflags = %W[
-            -s -w
-            -X main.BuildDate=#{time.iso8601}
-            -X main.Version=#{version}
-            -X main.Commit=#{Utils.git_head}
+            -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
           ]
           system "go", "build", *std_go_args(ldflags:)
         else
@@ -28,16 +25,13 @@ class Ilc < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/evilmarty/ilc/releases/download/v0.18.2/ilc-0.18.2-darwin_arm64"
-      sha256 "b9c746ea34634b898a469a310c0cb873e775d2bbd5028ce7f9771f19de4f877a"
+      url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-darwin_arm64"
+      sha256 "dafeb95082ef8bc02527706e4806837feddd554c911d4d014190591d9ae71347"
 
       def install
         if head?
           ldflags = %W[
-            -s -w
-            -X main.BuildDate=#{time.iso8601}
-            -X main.Version=#{version}
-            -X main.Commit=#{Utils.git_head}
+            -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
           ]
           system "go", "build", *std_go_args(ldflags:)
         else
@@ -50,16 +44,13 @@ class Ilc < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.18.2/ilc-0.18.2-linux_amd64"
-        sha256 "af629677a7387bfa3f3888bb02bf0dcf9c5b22921cd184cb2d5e2e82ec8d6451"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-linux_amd64"
+        sha256 "e2aa6948c9d7deeb3b8b2378c489fbf8296e7ed64ded8af10473e9db61c551f0"
 
         def install
           if head?
             ldflags = %W[
-              -s -w
-              -X main.BuildDate=#{time.iso8601}
-              -X main.Version=#{version}
-              -X main.Commit=#{Utils.git_head}
+              -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
             ]
             system "go", "build", *std_go_args(ldflags:)
           else
@@ -70,16 +61,13 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm?
       if !Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.18.2/ilc-0.18.2-linux_armv6"
-        sha256 "5789ad0f5244fabf46d02114732abd2df3e6c55a1e1b276ddc27822c34a59ed6"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-linux_armv6"
+        sha256 "2291582ebd55e0c5671d7c00a156ddd82b8b99def3bf06e3d5f314d8ab3b4ed8"
 
         def install
           if head?
             ldflags = %W[
-              -s -w
-              -X main.BuildDate=#{time.iso8601}
-              -X main.Version=#{version}
-              -X main.Commit=#{Utils.git_head}
+              -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
             ]
             system "go", "build", *std_go_args(ldflags:)
           else
@@ -90,16 +78,13 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.18.2/ilc-0.18.2-linux_arm64"
-        sha256 "ec65301ec773a11364313a7644553a84d516158b7d1ec3b20e642c187aef2abe"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-linux_arm64"
+        sha256 "3c7446f4e875a6d159afd2bb0e0adc2cea6ee94adb3e30706bfb51e975815b2f"
 
         def install
           if head?
             ldflags = %W[
-              -s -w
-              -X main.BuildDate=#{time.iso8601}
-              -X main.Version=#{version}
-              -X main.Commit=#{Utils.git_head}
+              -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
             ]
             system "go", "build", *std_go_args(ldflags:)
           else
