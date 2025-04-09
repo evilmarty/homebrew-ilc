@@ -5,13 +5,13 @@
 class Ilc < Formula
   desc "Simplify creating command-line utilities"
   homepage "https://github.com/evilmarty/ilc"
-  version "0.19.0"
+  version "0.20.0"
   license "GPL"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-darwin_amd64"
-      sha256 "c1965da99cf96430141ac7945fbd185c6b6d58f39b4190be4d6da5c729088bd4"
+      url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-darwin_amd64"
+      sha256 "ecd30107d495b9c6a90b1ee16add48581aceb4af8bef8eb3d1244db6336befd4"
 
       def install
         if head?
@@ -25,8 +25,8 @@ class Ilc < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-darwin_arm64"
-      sha256 "dafeb95082ef8bc02527706e4806837feddd554c911d4d014190591d9ae71347"
+      url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-darwin_arm64"
+      sha256 "dbf76527eb0d4e8b88a6b2b448f7a8bafec70231d2cdfecea1a390dce3ee53fc"
 
       def install
         if head?
@@ -44,8 +44,8 @@ class Ilc < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-linux_amd64"
-        sha256 "e2aa6948c9d7deeb3b8b2378c489fbf8296e7ed64ded8af10473e9db61c551f0"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-linux_amd64"
+        sha256 "8b8d650ace497e6a6917c5c36c448d8e49c941ba2649de4d4bd61eff10e99ea8"
 
         def install
           if head?
@@ -61,8 +61,8 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm?
       if !Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-linux_armv6"
-        sha256 "2291582ebd55e0c5671d7c00a156ddd82b8b99def3bf06e3d5f314d8ab3b4ed8"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-linux_armv6"
+        sha256 "77d45ae61f311e7a02ad54bf03074da9e74f57575c72d7d21e0b8da69dee242c"
 
         def install
           if head?
@@ -78,8 +78,8 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.19.0/ilc-0.19.0-linux_arm64"
-        sha256 "3c7446f4e875a6d159afd2bb0e0adc2cea6ee94adb3e30706bfb51e975815b2f"
+        url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-linux_arm64"
+        sha256 "d80390e0ac61bfaee01c72069e4c4a49d32af493a6c1761ef43149bf7f9b13e5"
 
         def install
           if head?
