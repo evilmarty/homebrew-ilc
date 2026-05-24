@@ -5,15 +5,15 @@
 class Ilc < Formula
   desc "Simplify creating command-line utilities"
   homepage "https://github.com/evilmarty/ilc"
-  version "0.20.0"
+  version "1.0.0"
   license "GPL"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-darwin_amd64"
-      sha256 "ecd30107d495b9c6a90b1ee16add48581aceb4af8bef8eb3d1244db6336befd4"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.0.0/ilc-1.0.0-darwin_amd64"
+      sha256 "a1d687dbf79922abb2f5fcc9c9df8cbebfa8b807b7593c6e336e952bcc83f0c9"
 
-      def install
+      define_method(:install) do
         if head?
           ldflags = %W[
             -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
@@ -25,10 +25,10 @@ class Ilc < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-darwin_arm64"
-      sha256 "dbf76527eb0d4e8b88a6b2b448f7a8bafec70231d2cdfecea1a390dce3ee53fc"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.0.0/ilc-1.0.0-darwin_arm64"
+      sha256 "68ca451200959d4aecacbec493cc03c701b4f77e6a4b88accb9e807ecfa75c00"
 
-      def install
+      define_method(:install) do
         if head?
           ldflags = %W[
             -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
@@ -42,54 +42,45 @@ class Ilc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-linux_amd64"
-        sha256 "8b8d650ace497e6a6917c5c36c448d8e49c941ba2649de4d4bd61eff10e99ea8"
-
-        def install
-          if head?
-            ldflags = %W[
-              -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
-            ]
-            system "go", "build", *std_go_args(ldflags:)
-          else
-            bin.install Dir["#{name}-*"].first => name
-          end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/evilmarty/ilc/releases/download/v1.0.0/ilc-1.0.0-linux_amd64"
+      sha256 "9aca44af0fd716d380826c3dc28c41c6c9c2a2c604d9f1a1ab55fcaf7c81b7ae"
+      define_method(:install) do
+        if head?
+          ldflags = %W[
+            -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
+          ]
+          system "go", "build", *std_go_args(ldflags:)
+        else
+          bin.install Dir["#{name}-*"].first => name
         end
       end
     end
-    if Hardware::CPU.arm?
-      if !Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-linux_armv6"
-        sha256 "77d45ae61f311e7a02ad54bf03074da9e74f57575c72d7d21e0b8da69dee242c"
-
-        def install
-          if head?
-            ldflags = %W[
-              -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
-            ]
-            system "go", "build", *std_go_args(ldflags:)
-          else
-            bin.install Dir["#{name}-*"].first => name
-          end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/evilmarty/ilc/releases/download/v1.0.0/ilc-1.0.0-linux_armv6"
+      sha256 "74a9f68b34ea7938c15993642300c99b24cc55413e09a8015aa04d55f6f91a0d"
+      define_method(:install) do
+        if head?
+          ldflags = %W[
+            -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
+          ]
+          system "go", "build", *std_go_args(ldflags:)
+        else
+          bin.install Dir["#{name}-*"].first => name
         end
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/evilmarty/ilc/releases/download/v0.20.0/ilc-0.20.0-linux_arm64"
-        sha256 "d80390e0ac61bfaee01c72069e4c4a49d32af493a6c1761ef43149bf7f9b13e5"
-
-        def install
-          if head?
-            ldflags = %W[
-              -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
-            ]
-            system "go", "build", *std_go_args(ldflags:)
-          else
-            bin.install Dir["#{name}-*"].first => name
-          end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/evilmarty/ilc/releases/download/v1.0.0/ilc-1.0.0-linux_arm64"
+      sha256 "23b70712d35747fc605c0d1df67c6f8dcf937874dddb8ecaf51555689996e006"
+      define_method(:install) do
+        if head?
+          ldflags = %W[
+            -s -w -X main.BuildDate=#{time.iso8601} -X main.Version=#{version} -X main.Commit=#{Utils.git_head}
+          ]
+          system "go", "build", *std_go_args(ldflags:)
+        else
+          bin.install Dir["#{name}-*"].first => name
         end
       end
     end
