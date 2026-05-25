@@ -11,7 +11,7 @@ class Ilc < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-darwin_amd64"
-      sha256 "07f7bfa5cbbfd51bbbecb2395c95cde585ce26be53c0e6ceb739fed393652089"
+      sha256 "d5d90ceac98d2bbbef770e3e954f4e445dedfd57da0d2631ee17445612e71d6c"
 
       define_method(:install) do
         if head?
@@ -26,7 +26,7 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-darwin_arm64"
-      sha256 "9154f724aba071aab23abaf0ce23c6f70d7154e9607414afdc6a6e9789b7f60f"
+      sha256 "82530ce94355c4cb5f764a116c821d9051a2328726818987ded2a256611ddae9"
 
       define_method(:install) do
         if head?
@@ -44,7 +44,7 @@ class Ilc < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-linux_amd64"
-      sha256 "4cb165de0f77b599920c3d43428ef88f588b89593849c323a6a8a891eb855cf0"
+      sha256 "29bb7bc862cdc4427e90ecbe69f2467f94e1099893bc80a490ede25899695056"
       define_method(:install) do
         if head?
           ldflags = %W[
@@ -58,7 +58,7 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-linux_armv6"
-      sha256 "cebc2b9afa1601e02651751a816ba009eeca117397eee88053b245225acb1d12"
+      sha256 "0355ef17bdd5bbc981835bd46ac14a7fa62f55e6f81d025754b23ba70fb868c5"
       define_method(:install) do
         if head?
           ldflags = %W[
@@ -72,7 +72,7 @@ class Ilc < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-linux_arm64"
-      sha256 "0a576fb8b99ca273eaadefdf1b5de4b99f8db6d74993a088d622a33e2b51e0e1"
+      sha256 "2c0538da25229fba0124d8d81a363538777a4b8d53eb9cb28bc0daf4b1c114fa"
       define_method(:install) do
         if head?
           ldflags = %W[
