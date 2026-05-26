@@ -5,13 +5,13 @@
 class Ilc < Formula
   desc "Simplify creating command-line utilities"
   homepage "https://github.com/evilmarty/ilc"
-  version "1.1.0"
+  version "1.2.0"
   license "GPL"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-darwin_amd64"
-      sha256 "5f4fa718f6a33216143774aecd1dfbe94064c202cb938f823ef1df8c9f52f494"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.2.0/ilc-1.2.0-darwin_amd64"
+      sha256 "d0edb4ec713ed306d6163c6492ed894a85bb535cb817bcfa28c67b410670f6fc"
 
       define_method(:install) do
         if head?
@@ -25,8 +25,8 @@ class Ilc < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-darwin_arm64"
-      sha256 "7d82579ace3540cecb4aa55943cef2b6b274e9ec598f97706528e6b991fe9f1a"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.2.0/ilc-1.2.0-darwin_arm64"
+      sha256 "dfa0dd956e7fb05b175fb00a31aeb2a89009d91d2de05cc198d05ad69c5a97a6"
 
       define_method(:install) do
         if head?
@@ -43,8 +43,8 @@ class Ilc < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-linux_amd64"
-      sha256 "f6cb14d4f281be0b19a4c742c3d4a920569f4420fbd8a927192e18e09be0401d"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.2.0/ilc-1.2.0-linux_amd64"
+      sha256 "21251c792232264b5d9aa1e7361d996c7a2f8659c5429db96847e75929586f19"
       define_method(:install) do
         if head?
           ldflags = %W[
@@ -57,8 +57,8 @@ class Ilc < Formula
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-linux_armv6"
-      sha256 "5d22ac33387326f402435a89d75fbb670b545c6c200c1521162de6d19d436b23"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.2.0/ilc-1.2.0-linux_armv6"
+      sha256 "e7fd8993d20063cc3ee3fa98b51c3345b9e2a63a2fc4b1c8949343581c1f9750"
       define_method(:install) do
         if head?
           ldflags = %W[
@@ -71,8 +71,8 @@ class Ilc < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evilmarty/ilc/releases/download/v1.1.0/ilc-1.1.0-linux_arm64"
-      sha256 "693d15654a52ded148b405c3261f90922ad28ba1c7247efe883699f39092a2a5"
+      url "https://github.com/evilmarty/ilc/releases/download/v1.2.0/ilc-1.2.0-linux_arm64"
+      sha256 "9997f0722e8d595eef519989f8f860f4885f7aa8cf0933d742b04fecd44ed1fe"
       define_method(:install) do
         if head?
           ldflags = %W[
