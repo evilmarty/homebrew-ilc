@@ -7,6 +7,7 @@ class Ilc < Formula
   homepage "https://github.com/evilmarty/ilc"
   version "1.2.0"
   license "GPL"
+  deprecate! date: "2026-08-22", because: "it has moved to the evilmarty/tap repository"
 
   on_macos do
     if Hardware::CPU.intel?
